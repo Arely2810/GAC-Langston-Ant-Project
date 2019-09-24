@@ -44,6 +44,26 @@ function draw_triangle( rctx, rp1x, rp1y, rp2x, rp2y, rp3x, rp3y )
     rctx.restore( );
 }
 
+function draw_square(rctx, rp1x, rp1y, rp2x, rp2y, rp3x, rp3y, rp4x, rp4y, rp5x, rp5y, color) {
+  rctx.save( );
+  rctx.fillStyle = color;
+  rctx.beginPath( );
+  rctx.moveTo( rp1x, rp1y ); // 50, 250
+  rctx.lineTo( rp2x, rp2y ); // 50, 350
+  rctx.lineTo( rp3x, rp3y ); // 150, 350
+  rctx.lineTo( rp4x, rp4y ); // 150, 350
+  rctx.lineTo( rp5x, rp5y ); // 150, 350
+  rctx.closePath();
+  rctx.stroke();
+  rctx.fill();
+
+  rctx.translate(50, 100);
+  rctx.rotate(20 * Math.PI / 180);
+  rctx.translate(50, -100);
+
+  rctx.restore( );
+}
+
 function set_triangle(ctx, direction, locX, locY) {
   var p1x, p1y, p2x, p2y, p3x, p3y = 0;
   if (direction == "left") {
@@ -78,6 +98,79 @@ function set_triangle(ctx, direction, locX, locY) {
   draw_triangle(ctx, p1x, p1y, p2x, p2y, p3x, p3y);
 }
 
+function set_square(ctx, locX, locY, color) {
+  var rp1x, rp1y, rp2x, rp2y, rp3x, rp3y, rp4x, rp4y, rp5x, rp5y;
+  rp1x = 0 + locX;
+  rp1y = 0 + locY;
+  rp2x = 10 + locX;
+  rp2y = 0 + locY;
+  rp3x = 10 + locX;
+  rp3y = 10 + locY;
+  rp4x = 0 + locX;
+  rp4y = 10 + locY;
+  rp5x = 0 + locX;
+  rp5y = 0 + locY;
+  draw_square(ctx, rp1x, rp1y, rp2x, rp2y, rp3x, rp3y, rp4x, rp4y, rp5x, rp5y, color);
+  // draw_square(context, 0, 0, 10, 0, 10, 10, 0, 10, 0, 0);
+}
+
+
+function create2DArray(ctx) {
+  // initalize 2D array with 0
+  var arr = new Array(41);
+  for (var i = 0; i < arr.length; i++) {
+    arr[i] = new Array(41);
+  }
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = 0; j < arr.length; j++) {
+      arr[i][j] = 0;
+    }
+  }
+
+  // loop 100 times
+  for (var i = 0; i <= 1000; i++) {
+    // random x and y coordinates
+    x = Math.random() * 40;
+    y = Math.random() * 40;
+    // Round down
+    x = Math.round(x);
+    y = Math.round(y);
+    // Change the box according to the 2D Array
+    change(ctx, x, y, arr);
+  }
+
+  // printing 2d array for testing purposes
+  document.write("<br>");
+  document.write("<br>");
+  document.write("<br>");
+  document.write("<br>");
+  for (var i = 0; i < 41; i++) {
+    for (var j = 0; j < 41; j++)    {
+      document.write(arr[i][j] + " ");
+    }
+    document.write("<br>");
+  }
+}
+
+function change(ctx, x, y, arr) {
+  // Scale x and y coordinates
+  var tmpX = x * 10;
+  var tmpY = y * 10;
+  // Change color according to 2D array value
+  if (arr[x][y] == 0) {
+    set_square(context, tmpX, tmpY, "red");
+  } else if (arr[x][y] == 1) {
+    set_square(context, tmpX, tmpY, "yellow");
+  } else if (arr[x][y] == 2) {
+    set_square(context, tmpX, tmpY, "blue");
+  } else if (arr[x][y] == 3) {
+    set_square(context, tmpX, tmpY, "black");
+  }
+  arr[x][y]++;
+  if (arr[x][y] > 3) {
+    arr[x][y] = 0
+  }
+}
 // =====================================================  Main ====
   var canvas = document.getElementById( "grid" );
   var context = canvas.getContext( "2d" );
@@ -85,11 +178,15 @@ function set_triangle(ctx, direction, locX, locY) {
   // 10 = how big the square is, 50 is how many should be per box
     draw_grid( context, 10, 50, 'white', 'yellow' );
 
-
     set_triangle(context, "left", 20, 100);
     set_triangle(context, "up", 50, 20);
     set_triangle(context, "down", 150, 300);
     set_triangle(context, "right", 50, 200);
+
+    create2DArray(context);
+    // set_square(context, 30, 40, "white");
+    // set_square(context, 310, 140, "red");
+
 
 </script>
 </html>
