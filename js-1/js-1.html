@@ -1,0 +1,95 @@
+<!doctype html><html><head>
+<title>This is an HTML canvas</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body><h1>Playing the HTML canvas</h1>
+<h4>Time-stamp: <2019-01-21 20:11:03 Chuck Siska></h4>
+
+<canvas id="grid" width="410" height="410"></canvas>
+
+</body>
+<script src="../assets/draw-stuff.js"></script>
+<script>
+// after "Introducing JavaScript Game Development" by Stuart.
+
+// =====================================================  draw_title ====
+// Draw filled rect.
+function draw_title( context )
+{
+    context.save( );
+    context.fillStyle = 'lightgrey';
+    context.font = "30px Arial";
+    context.fillText( "Grid", 150, 140 );
+    context.restore( );
+}
+
+// Group Project Functions
+function draw_triangle( rctx, rp1x, rp1y, rp2x, rp2y, rp3x, rp3y )
+{
+    rctx.save( );
+    rctx.fillStyle = 'white';
+    // BL Triangle.
+    rctx.beginPath( );
+    rctx.moveTo( rp1x, rp1y ); // 50, 250
+    rctx.lineTo( rp2x, rp2y ); // 50, 350
+    rctx.lineTo( rp3x, rp3y ); // 150, 350
+    rctx.closePath();
+    rctx.stroke();
+    rctx.fill();
+
+    rctx.translate(50, 100);
+    rctx.rotate(20 * Math.PI / 180);
+    rctx.translate(50, -100);
+
+    rctx.restore( );
+}
+
+function set_triangle(ctx, direction, locX, locY) {
+  var p1x, p1y, p2x, p2y, p3x, p3y = 0;
+  if (direction == "left") {
+    p1x = 0 + locX;
+    p1y = 5 + locY;
+    p2x = 10 + locX;
+    p2y = 0 + locY;
+    p3x = 10 + locX;
+    p3y = 10 + locY;
+  } else if (direction == "up") {
+    p1x = 0 + locX;
+    p1y = 10 + locY;
+    p2x = 5 + locX;
+    p2y = 0 + locY;
+    p3x = 10 + locX;
+    p3y = 10 + locY;
+  } else if (direction == "down") {
+    p1x = 0 + locX;
+    p1y = 0 + locY;
+    p2x = 5 + locX;
+    p2y = 10 + locY;
+    p3x = 10 + locX;
+    p3y = 0 + locY;
+ } else if (direction == "right") {
+    p1x = 0 + locX;
+    p1y = 0 + locY;
+    p2x = 0 + locX;
+    p2y = 10 + locY;
+    p3x = 10 + locX;
+    p3y = 5 + locY;
+  }
+  draw_triangle(ctx, p1x, p1y, p2x, p2y, p3x, p3y);
+}
+
+// =====================================================  Main ====
+  var canvas = document.getElementById( "grid" );
+  var context = canvas.getContext( "2d" );
+  // draw_rect( context ); // grey rectangle
+  // 10 = how big the square is, 50 is how many should be per box
+    draw_grid( context, 10, 50, 'white', 'yellow' );
+
+
+    set_triangle(context, "left", 20, 100);
+    set_triangle(context, "up", 50, 20);
+    set_triangle(context, "down", 150, 300);
+    set_triangle(context, "right", 50, 200);
+
+</script>
+</html>
