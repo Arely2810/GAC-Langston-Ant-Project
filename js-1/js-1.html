@@ -163,24 +163,24 @@ up = 3
     if ( arr[x_pos][y_pos] == 0) {  //on black square
         if ( facing == 0 ) {  //facing left, turn left
           arr[x_pos][y_pos] = 1;  //change to red
-          y_pos += 1;  //move on grid
+          x_pos += 1;  //move on grid
           facing = 1; //face down
         }
 
         else if ( facing == 1) { //facing down, turn left
           arr[x_pos][y_pos] = 1;  //change to red
-          x_pos += 1; //move on grid
+          y_pos += 1; //move on grid
           facing = 2; //face right
         }
 
         else if (facing == 2) { //facing right, turn left
           arr[x_pos][y_pos] = 1;  //change to red
-          y_pos -= 1; //move on grid
+          x_pos -= 1; //move on grid
           facing = 3; //facing up
         }
         else if (facing == 3) { //facing up, turn left
           arr[x_pos][y_pos] = 1;  //change to red
-          x_pos -= 1; //move on grid
+          y_pos -= 1; //move on grid
           facing = 0; //facing left
         }
       }
@@ -188,23 +188,23 @@ up = 3
     else if (arr[x_pos][y_pos] == 1) { //on red square
         if (facing == 0) {  //facing left, turn left
           arr[x_pos][y_pos] = 2;  //change to yellow
-          y_pos += 1; //move on grid
+          x_pos += 1; //move on grid
           facing = 1; //face down
         }
         else if (facing == 1) { //facing down, turn left
           arr[x_pos][y_pos] = 2;  //change to yellow
-          x_pos += 1; //move on grid
+          y_pos += 1; //move on grid
           facing = 2; //face right
         }//working to ehre
 
         else if (facing == 2) { //facing right, turn left
           arr[x_pos][y_pos] = 2;  //change to yellow
-          y_pos -= 1; //move on grid
+          x_pos -= 1; //move on grid
           facing = 3; //facing up
         }
         else if (facing == 3) {  //facing up, turn left
           arr[x_pos][y_pos] = 2;  //change to yellow
-          x_pos -= 1; //move on grid
+          y_pos -= 1; //move on grid
           facing = 0; //facing left
         }
       } //worknig here
@@ -212,52 +212,50 @@ up = 3
       else if (arr[x_pos][y_pos] == 2) { //yellow square
           if (facing == 0) { //facing left, turn right
             arr[x_pos][y_pos] = 3;  //change to blue
-            y_pos -= 1; //move on grid
+            x_pos -= 1; //move on grid
             facing = 3; //facing up
           }
           else if (facing == 1) { //facing down, turn right
             arr[x_pos][y_pos] = 3;  //change to blue
-            x_pos -= 1; //moving on grid
+            y_pos -= 1; //moving on grid
             facing = 0; //facing left
           }
           else if (facing = 2) { //facing right, turn right
             arr[x_pos][y_pos] = 3;  //change to blue
-            y_pos += 1; //move on grid
+            x_pos += 1; //move on grid
             facing = 1; //facing down
           }
           else if (facing == 3) { //facing up, turn right
             arr[x_pos][y_pos] = 3;  //change to blue
-            x_pos += 1; //move on rid
+            y_pos += 1; //move on rid
+            facing = 2; //facing right
+          }
+        }
+
+      else if (arr[x_pos][y_pos] == 3) { //blue square
+          if (facing == 0) { //facing left, turn right
+            arr[x_pos][y_pos] = 0;  //change to black
+            x_pos -= 1; //move on grid
+            facing = 3; //facing up
+          }
+          else if (facing == 1) {//facing down, turn right
+            arr[x_pos][y_pos] = 0; //change to black
+            y_pos -= 1; //move on grid
+            facing = 0; //facing left
+          }
+          else if (facing == 2) { //facing down, turn right
+            arr[x_pos][y_pos] = 0;  //change to black
+            x_pos += 1; //move on grid
+            facing = 1; //facing down
+          }
+          else if (facing == 3) {  //facing up, turn right
+            arr[x_pos][y_pos] = 0;  //change to black
+            y_pos += 1; //move on grid
             facing = 2; //facing right
           }
         }
       }
-      /*
-        if (array[x_pos][y_pos] == 3) { //blue square
-          if (facing = 0) { //facing left, turn right
-            array[x_pos][y_pos] = 0;
-            y_pos -= 1;
-            facing = 3;
-          }
-          if (facing = 1) {
-            array[x_pos][y_pos] = 0;
-            x_pos -= 1;
-            facing = 0;
-          }
-          if (facing = 2) {
-            array[x_pos][y_pos] = 0;
-            y_pos += 1;
-            facing = 1;
-          }
-          if (facing = 3) {
-            array[x_pos][y_pos] = 0;
-            x_pos += 1;
-            facing = 2;
-          }
-        }
-      }
-      */
-
+      gridSquares(context, arr);
   // printing 2d array for testing purposes
   document.write("<br>");
   document.write("<br>");
@@ -280,7 +278,7 @@ up = 3
 
     set_triangle(context, "right", 50, 200);
 
-    create2DArray(context, 0, 20, 20,12 );
+    create2DArray(context, 0, 30, 20, 800);
 
 </script>
 </html>
