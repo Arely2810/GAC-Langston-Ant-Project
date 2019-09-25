@@ -23,6 +23,7 @@ r - red           T - triangle (marker)
 y - yellow        f - triangle direction
 
 ![example](/example.PNG)
+<!-- Look at the file, example.PNG if it doesn't appear -->
   
 Features:
 None.
