@@ -2,8 +2,8 @@
 <title>This is an HTML canvas</title>
 <link rel="stylesheet" href="../assets/styles.css">
 </head>
-<body><h1>Playing the HTML canvas</h1>
-<h4>Time-stamp: <2019-01-21 20:11:03 Chuck Siska></h4>
+<body><h1>Project 1: Langston's Ant  </h1>
+<h4>Christopher Bui, Arely De Leon, Graciela Orozco</h4>
 
 <canvas id="grid" width="410" height="410"></canvas>
 
@@ -66,28 +66,28 @@ function draw_square(rctx, rp1x, rp1y, rp2x, rp2y, rp3x, rp3y, rp4x, rp4y, rp5x,
 // draw and move shapes according to x and y coordinates
 function set_triangle(ctx, direction, locX, locY) {
   var p1x, p1y, p2x, p2y, p3x, p3y = 0;
-  if (direction == "left") {
+  if (direction == "Left") {
     p1x = 0 + locX;
     p1y = 5 + locY;
     p2x = 10 + locX;
     p2y = 0 + locY;
     p3x = 10 + locX;
     p3y = 10 + locY;
-  } else if (direction == "up") {
+  } else if (direction == "Up") {
     p1x = 0 + locX;
     p1y = 10 + locY;
     p2x = 5 + locX;
     p2y = 0 + locY;
     p3x = 10 + locX;
     p3y = 10 + locY;
-  } else if (direction == "down") {
+  } else if (direction == "Down") {
     p1x = 0 + locX;
     p1y = 0 + locY;
     p2x = 5 + locX;
     p2y = 10 + locY;
     p3x = 10 + locX;
     p3y = 0 + locY;
- } else if (direction == "right") {
+ } else if (direction == "Right") {
     p1x = 0 + locX;
     p1y = 0 + locY;
     p2x = 0 + locX;
@@ -111,14 +111,6 @@ function set_square(ctx, locX, locY, color) {
   rp5y = 0 + locY;
   draw_square(ctx, rp1x, rp1y, rp2x, rp2y, rp3x, rp3y, rp4x, rp4y, rp5x, rp5y, color);
   // draw_square(context, 0, 0, 10, 0, 10, 10, 0, 10, 0, 0);
-}
-
-// change the values in the 2D array
-function change(ctx, x, y, arr) {
-  arr[x][y]++;
-  if (arr[x][y] > 3) {
-    arr[x][y] = 0
-  }
 }
 
 // paint the squares onto the grid based on the 2D array
@@ -258,17 +250,19 @@ up = 3
       }
       gridSquares(context, arr);
 
-  //printing location of marker for testing purposes
+  //printing Marker coordinates
+  //printing Marker direction
+  //printing Marker Square Color
   document.write("<br>");
   document.write("<br>");
   if (facing == 0)
-    var stringFacing = "left";
+    var stringFacing = "Left";
   if (facing == 1)
-    var stringFacing = "down";
+    var stringFacing = "Down";
   if (facing == 2)
-    var stringFacing = "right";
+    var stringFacing = "Right";
   if (facing == 3)
-    var stringFacing = "up";
+    var stringFacing = "Up";
 
   if (arr[x_pos][y_pos] == 0)
     var squareColor = "Black";
@@ -279,14 +273,13 @@ up = 3
   if (arr[x_pos][y_pos] == 3)
     var squareColor = "Blue";
 
+
   document.write("Marker Coordinate: " + y_pos + "," + x_pos);
   document.write("<br>");
   document.write("Marker is Facing: " + stringFacing);
   document.write("<br>");
   document.write("On Square Color: " + squareColor);
   // printing 2d array for testing purposes
-  document.write("<br>");
-  document.write("<br>");
   document.write("<br>");
   document.write("<br>");
   for (var i = 0; i < 41; i++) {
@@ -297,15 +290,15 @@ up = 3
     }
     document.write("<br>");
   }
+  set_triangle(context, stringFacing, x_pos, y_pos)
 }
 // =====================================================  Main ====
   var canvas = document.getElementById( "grid" );
   var context = canvas.getContext( "2d" );
   // draw_rect( context ); // grey rectangle
     draw_grid( context, 10, 50, 'white', 'yellow' );
+    create2DArray(context, 0, 20, 20, 42255);
 
-
-    create2DArray(context, 0, 20, 20, 100000);
 
 </script>
 </html>
