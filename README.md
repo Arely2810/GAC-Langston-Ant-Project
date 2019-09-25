@@ -18,7 +18,7 @@ Setup/Installation:
   Unzip our files, and run the js-1.html.  It can be opened with an edititor for debugging.  Do not forget style.css and draw-stuff.js.  It is required to be in the assets folder.
   
 Sample Invocation
-b - black         B - blue
+b - black         Bl - blue
 r - red           T - triangle (marker)
 y - yellow        f - triangle directi
 
