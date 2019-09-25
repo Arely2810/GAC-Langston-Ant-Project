@@ -22,8 +22,7 @@ b - black         Bl - blue
 r - red           T - triangle (marker)
 y - yellow        f - triangle direction
 
-![example](/example.png)
-Format: ![Alt Text](url)
+![example](/example.PNG)
 
 |---|---|---|   |---|-f-|---|   |---|---|---|   |---|---|---|   |---|---|---|   |---|-f-|---|
 |-b-|-b-|-b-|   |-b-|-T-|-b-|   |-b-|-r-|-Tf|   |-b-|-r-|-r-|   |-b-|-r-|-r-|   |-b-|-T-|-b-|
