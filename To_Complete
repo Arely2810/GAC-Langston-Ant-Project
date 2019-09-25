@@ -1,5 +1,6 @@
 Code
-Need to redo movement.  Change the black(0) and red(1) to turn right.  yellow(2) and blue(3) to turn left
+  -Need to redo movement.  Change the black(0) and red(1) to turn right.  yellow(2) and blue(3) to turn left
+  -update emails on headers
 
 Submission
 1-page paper describing big-o analysis and run time
