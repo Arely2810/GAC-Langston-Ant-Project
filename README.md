@@ -22,7 +22,7 @@ b - black         Bl - blue
 r - red           T - triangle (marker)
 y - yellow        f - triangle direction
 
-![GitHub Logo](example.png)
+![example](/example.png)
 Format: ![Alt Text](url)
 
 |---|---|---|   |---|-f-|---|   |---|---|---|   |---|---|---|   |---|---|---|   |---|-f-|---|
