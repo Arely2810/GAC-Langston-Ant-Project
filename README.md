@@ -20,7 +20,10 @@ Setup/Installation:
 Sample Invocation
 b - black         Bl - blue
 r - red           T - triangle (marker)
-y - yellow        f - triangle directi
+y - yellow        f - triangle direction
+
+![GitHub Logo](/images/example.png)
+Format: ![Alt Text](url)
 
 |---|---|---|   |---|-f-|---|   |---|---|---|   |---|---|---|   |---|---|---|   |---|-f-|---|
 |-b-|-b-|-b-|   |-b-|-T-|-b-|   |-b-|-r-|-Tf|   |-b-|-r-|-r-|   |-b-|-r-|-r-|   |-b-|-T-|-b-|
