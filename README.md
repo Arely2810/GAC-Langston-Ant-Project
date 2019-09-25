@@ -7,8 +7,8 @@ Intro (including the algorithm used):
   An ant(triangle) crawls on a 2D grid (41x41) where each cell has a color (initially all black), and changes as the ant passes. The direction in which the ant turns is determined by the colors of square it is on. Black and red has the ant turn right while yellow and blue ahs the ant turning left.  Our program shows over 40,000 steps.
   
 Contents:
-  styles.css
-  draw-stuff.js
+  styles.css,
+  draw-stuff.js,
   js-1.html
   
 External Requirements:
