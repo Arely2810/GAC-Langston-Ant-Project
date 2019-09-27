@@ -4,7 +4,7 @@ Project #1 Cella Ant 12
 Team GAC, Graciela Orozco, Arley De Leon, Christopher Bui
 
 Intro (including the algorithm used):
-  An ant(triangle) crawls on a 2D grid (41x41) where each cell has a color (initially all black), and changes as the ant passes. The direction in which the ant turns is determined by the colors of square it is on. Black and red has the ant turn right while yellow and blue ahs the ant turning left.  Our program shows over 40,000 steps.
+  An ant(triangle) crawls on a 2D grid (41x41) where each cell has a color (initially all black), and changes as the ant passes. The direction in which the ant turns is determined by the colors of square it is on. Black and red has the ant turn right. While yellow and blue has the ant turning left.  Our program shows over 40,000 steps.
   
 Contents:
   styles.css
